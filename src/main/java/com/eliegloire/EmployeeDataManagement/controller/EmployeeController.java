@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class EmployeeController {
     @GetMapping("/")
@@ -20,5 +22,8 @@ public class EmployeeController {
     @PostMapping("/employees")
     public Employee saveEmployee(@RequestBody Employee employee){
         return employeeService.saveEmployee(employee);
+    }
+    public List<Employee> fetchEmployee(){
+        return employeeService.fetchEmployee();
     }
 }
