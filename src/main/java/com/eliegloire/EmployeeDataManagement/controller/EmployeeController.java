@@ -3,10 +3,8 @@ package com.eliegloire.EmployeeDataManagement.controller;
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
 import com.eliegloire.EmployeeDataManagement.service.impl.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -26,4 +24,11 @@ public class EmployeeController {
     public List<Employee> fetchEmployee(){
         return employeeService.fetchEmployee();
     }
+    @GetMapping("/employees/{id}")
+    public Employee fetchEmployeeById(@PathVariable("id") Long id){
+        return employeeService.fetchEmployeeById(id);
+
+    }
+
+
 }

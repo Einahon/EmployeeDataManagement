@@ -21,5 +21,10 @@ public class EmployeeService implements IEmployeeService{
     public List<Employee> fetchEmployee() {
         return employeeRepository.findAll();
     }
+
+    @Override
+    public Employee fetchEmployeeById(Long id) {
+        return employeeRepository.findById(id).get();
+    }
 }
 

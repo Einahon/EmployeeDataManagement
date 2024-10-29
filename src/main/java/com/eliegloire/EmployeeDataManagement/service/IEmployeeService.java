@@ -8,4 +8,6 @@ public interface IEmployeeService {
    public  Employee saveEmployee(Employee employee);
 
   public List<Employee> fetchEmployee();
+
+    public Employee fetchEmployeeById(Long id);
 }
