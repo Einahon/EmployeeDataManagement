@@ -12,4 +12,6 @@ public interface IEmployeeService {
     public Employee fetchEmployeeById(Long id);
 
     public Employee updateEmployeeById(Employee employee, Long id);
+
+   public void deleteEmployeeById(Long id);
 }

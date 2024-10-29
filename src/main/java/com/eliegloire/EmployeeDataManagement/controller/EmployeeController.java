@@ -32,5 +32,10 @@ public class EmployeeController {
     public Employee updateEmployeeById(@RequestBody Employee employee, @PathVariable("id") Long id){
         return employeeService.updateEmployeeById(employee, id);
     }
+@DeleteMapping("/employees/{id}")
+    public String deleteEmployeeById(@PathVariable("id") Long id){
+        employeeService.deleteEmployeeById(id);
+                return "Employee deleted sucessfully";
+}
 
 }

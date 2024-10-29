@@ -63,10 +63,13 @@ public class EmployeeService implements IEmployeeService{
         }
         System.out.println("Hire date does not exist");
 
-
         return employeeRepository.save(employee1);
-
-
     }
+
+    @Override
+    public void deleteEmployeeById(Long id) {
+        employeeRepository.deleteById(id);
+    }
+
 }
 
