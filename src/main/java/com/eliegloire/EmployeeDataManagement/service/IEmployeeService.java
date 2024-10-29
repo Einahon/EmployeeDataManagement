@@ -10,4 +10,6 @@ public interface IEmployeeService {
   public List<Employee> fetchEmployee();
 
     public Employee fetchEmployeeById(Long id);
+
+    public Employee updateEmployeeById(Employee employee, Long id);
 }
