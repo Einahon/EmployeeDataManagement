@@ -43,4 +43,9 @@ public class EmployeeController {
         return employeeService.fetchEmployeeByName(name);
     }
 
+    @GetMapping("/employees/hireDate/{hireDate}")
+    public Employee fetchByHireDate(@PathVariable("hireDate") String hireDate){
+        return employeeService.fetchByHireDate(hireDate);
+    }
+
 }

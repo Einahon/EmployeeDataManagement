@@ -16,4 +16,6 @@ public interface IEmployeeService {
    public void deleteEmployeeById(Long id);
 
    public Employee fetchEmployeeByName(String name);
+
+    public Employee fetchByHireDate(String hireDate);
 }

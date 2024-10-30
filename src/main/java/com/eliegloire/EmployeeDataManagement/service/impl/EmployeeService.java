@@ -71,5 +71,10 @@ public class EmployeeService implements IEmployeeService{
         return employeeRepository.findByNameIgnoreCase(name);
     }
 
+    @Override
+    public Employee fetchByHireDate(String hireDate) {
+        return employeeRepository.findByHireDateIgnoreCase(hireDate);
+    }
+
 }
 
