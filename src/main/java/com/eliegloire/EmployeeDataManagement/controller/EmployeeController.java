@@ -24,6 +24,7 @@ public class EmployeeController {
     public List<Employee> fetchEmployee(){
         return employeeService.fetchEmployee();
     }
+
     @GetMapping("/employees/{id}")
     public Employee fetchEmployeeById(@PathVariable("id") Long id) {
         return employeeService.fetchEmployeeById(id);
@@ -36,6 +37,10 @@ public class EmployeeController {
     public String deleteEmployeeById(@PathVariable("id") Long id){
         employeeService.deleteEmployeeById(id);
                 return "Employee deleted sucessfully";
+    }
+    @GetMapping("/employees/name/{name}")
+    public Employee fetchEmployeeByName(@PathVariable("name") String name ){
+        return employeeService.fetchEmployeeByName(name);
     }
 
 }

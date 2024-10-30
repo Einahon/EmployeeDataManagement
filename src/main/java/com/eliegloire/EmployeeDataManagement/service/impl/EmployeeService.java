@@ -66,5 +66,10 @@ public class EmployeeService implements IEmployeeService{
         employeeRepository.deleteById(id);
     }
 
+    @Override
+    public Employee fetchEmployeeByName(String name) {
+        return employeeRepository.findByNameIgnoreCase(name);
+    }
+
 }
 
