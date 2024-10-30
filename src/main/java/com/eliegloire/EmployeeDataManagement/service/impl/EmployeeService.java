@@ -36,32 +36,27 @@ public class EmployeeService implements IEmployeeService{
         if(Objects.nonNull(employee.getName()) &&
                 !"".equalsIgnoreCase(employee.getName())) {
             employee1.setName(employee.getName());
-        } else{
-        System.out.println("Name does not exist");}
+        }
 
         if((employee.getSalary()!= null) &&
                 !"".equalsIgnoreCase(String.valueOf(employee.getSalary()))){
             employee1.setSalary(employee.getSalary());
         }
-        System.out.println("Salary does not exist");
 
         if(Objects.nonNull(employee.getDepartment())&&
                 !"".equalsIgnoreCase(employee.getDepartment())){
             employee1.setDepartment(employee.getDepartment());
         }
-        System.out.println("Department does not exist");
 
         if(Objects.nonNull(employee.getJobTitle())&&
                 !"".equalsIgnoreCase(employee.getJobTitle())){
             employee1.setJobTitle(employee.getJobTitle());
         }
-        System.out.println("Job title does not exist");
 
         if(Objects.nonNull(employee.getHireDate())&&
                 !"".equalsIgnoreCase(employee.getHireDate())){
             employee1.setHireDate(employee.getHireDate());
         }
-        System.out.println("Hire date does not exist");
 
         return employeeRepository.save(employee1);
     }

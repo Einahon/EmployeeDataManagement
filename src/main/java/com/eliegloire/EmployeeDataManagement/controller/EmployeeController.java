@@ -36,6 +36,6 @@ public class EmployeeController {
     public String deleteEmployeeById(@PathVariable("id") Long id){
         employeeService.deleteEmployeeById(id);
                 return "Employee deleted sucessfully";
-}
+    }
 
 }
