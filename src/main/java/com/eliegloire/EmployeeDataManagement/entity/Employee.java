@@ -5,10 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Builder
    public class Employee{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
