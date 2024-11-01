@@ -2,6 +2,7 @@ package com.eliegloire.EmployeeDataManagement.controller;
 
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
 import com.eliegloire.EmployeeDataManagement.service.impl.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping("/employees")
-    public Employee saveEmployee(@RequestBody Employee employee){
+    public Employee saveEmployee(@Valid @RequestBody Employee employee){
         return employeeService.saveEmployee(employee);
     }
     @GetMapping("/employees")

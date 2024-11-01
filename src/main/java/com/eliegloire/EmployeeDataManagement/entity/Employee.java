@@ -4,16 +4,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+aimport jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
    public class Employee{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-       private String name;
+    @NotBlank(message = "Please add Employee Name")
+    private String name;
        private String department;
        private String jobTitle;
+
+       @Min(value = 100000, message = "Salary must be a minimum of 100000")
+       @Max(value = 999999, message = "Salary must be a maximum of 999999")
        private Long salary;
+
+       @NotBlank(message = "Please add hired date")
        private String hireDate;
 
        public Long getId() {
