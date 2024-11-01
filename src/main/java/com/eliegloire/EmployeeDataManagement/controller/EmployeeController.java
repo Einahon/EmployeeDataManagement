@@ -3,6 +3,8 @@ package com.eliegloire.EmployeeDataManagement.controller;
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
 import com.eliegloire.EmployeeDataManagement.service.impl.EmployeeService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +19,16 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
+
     @PostMapping("/employees")
     public Employee saveEmployee(@Valid @RequestBody Employee employee){
+        LOGGER.info("Logger for saveEmployee of EmployeeController");
         return employeeService.saveEmployee(employee);
     }
     @GetMapping("/employees")
     public List<Employee> fetchEmployee(){
+        LOGGER.info("Logger for fetchEmployee of EmployeeController");
         return employeeService.fetchEmployee();
     }
 
