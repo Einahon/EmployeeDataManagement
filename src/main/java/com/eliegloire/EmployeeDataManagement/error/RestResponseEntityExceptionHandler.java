@@ -19,15 +19,6 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
 
     }
-//    @ExceptionHandler(EmployeeBadRequestException.class)
-//public ResponseEntity<ErrorMessage> employeeBadRequestException(EmployeeBadRequestException exception, WebRequest request){
-//        ErrorMessage messag = new ErrorMessage(HttpStatus.BAD_REQUEST, exception.getMessage());
-//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messag);
-//}
 
-    @ExceptionHandler(EmployeeBadRequestException.class)
-    public ResponseEntity<ErrorMessage> handleValidationExceptions(EmployeeBadRequestException exception) {
-        ErrorMessage errors = new ErrorMessage(HttpStatus.BAD_REQUEST, exception.getMessage());
-        return ResponseEntity.badRequest().body(errors);
-    }
+
     }
