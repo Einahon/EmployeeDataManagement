@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
     private String name;
        private String department;
        private String jobTitle;
-
+       @NotNull(message = "Salary must not be Null")
        @Min(value = 100000, message = "Salary must be a minimum of 100000")
        @Max(value = 999999, message = "Salary must be a maximum of 999999")
        private Long salary;
