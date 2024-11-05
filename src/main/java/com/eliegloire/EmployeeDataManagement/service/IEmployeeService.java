@@ -1,6 +1,7 @@
 package com.eliegloire.EmployeeDataManagement.service;
 
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
+import com.eliegloire.EmployeeDataManagement.error.EmployeeNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface IEmployeeService {
 
   public List<Employee> fetchEmployee();
 
-    public Employee fetchEmployeeById(Long id);
+    public Employee fetchEmployeeById(Long id) throws EmployeeNotFoundException;
 
     public Employee updateEmployeeById(Employee employee, Long id);
 

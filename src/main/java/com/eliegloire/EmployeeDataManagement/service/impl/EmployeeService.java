@@ -1,15 +1,16 @@
 package com.eliegloire.EmployeeDataManagement.service.impl;
 
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
+import com.eliegloire.EmployeeDataManagement.error.EmployeeNotFoundException;
 import com.eliegloire.EmployeeDataManagement.repository.EmployeeRepository;
 import com.eliegloire.EmployeeDataManagement.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class EmployeeService implements IEmployeeService{
@@ -26,8 +27,12 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee fetchEmployeeById(Long id) {
-        return employeeRepository.findById(id).get();
+    public Employee fetchEmployeeById(Long id) throws EmployeeNotFoundException {
+        Optional<Employee> employee = employeeRepository.findById(id);
+        if(!employee.isPresent()){
+            throw new EmployeeNotFoundException("Employee not available at the id "+ id);
+        }
+        return employee.get();
     }
 
     @Override

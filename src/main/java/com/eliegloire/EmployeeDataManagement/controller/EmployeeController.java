@@ -1,6 +1,7 @@
 package com.eliegloire.EmployeeDataManagement.controller;
 
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
+import com.eliegloire.EmployeeDataManagement.error.EmployeeNotFoundException;
 import com.eliegloire.EmployeeDataManagement.service.impl.EmployeeService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    public Employee fetchEmployeeById(@PathVariable("id") Long id) {
+    public Employee fetchEmployeeById(@PathVariable("id") Long id) throws EmployeeNotFoundException {
         return employeeService.fetchEmployeeById(id);
     }
     @PutMapping("/employees/{id}")
