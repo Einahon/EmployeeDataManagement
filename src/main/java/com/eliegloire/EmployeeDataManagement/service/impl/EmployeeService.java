@@ -4,10 +4,13 @@ import com.eliegloire.EmployeeDataManagement.entity.Employee;
 import com.eliegloire.EmployeeDataManagement.error.EmployeeNotFoundException;
 import com.eliegloire.EmployeeDataManagement.repository.EmployeeRepository;
 import com.eliegloire.EmployeeDataManagement.service.IEmployeeService;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,9 +61,9 @@ public class EmployeeService implements IEmployeeService{
             employee1.setJobTitle(employee.getJobTitle());
         }
 
-        if(Objects.nonNull(employee.getHireDate())&&
-                !"".equalsIgnoreCase(employee.getHireDate())){
+        if(employee.getHireDate() != null){
             employee1.setHireDate(employee.getHireDate());
+
         }
 
         return employeeRepository.save(employee1);
@@ -77,8 +80,8 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee fetchByHireDate(String hireDate) {
-        return employeeRepository.findByHireDateIgnoreCase(hireDate);
+    public Employee fetchByHireDate(LocalDate hireDate) {
+        return employeeRepository.findByHireDate(hireDate);
     }
 
 }

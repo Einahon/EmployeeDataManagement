@@ -3,6 +3,7 @@ package com.eliegloire.EmployeeDataManagement.service;
 import com.eliegloire.EmployeeDataManagement.entity.Employee;
 import com.eliegloire.EmployeeDataManagement.error.EmployeeNotFoundException;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IEmployeeService {
@@ -18,5 +19,5 @@ public interface IEmployeeService {
 
    public Employee fetchEmployeeByName(String name);
 
-    public Employee fetchByHireDate(String hireDate);
+    public Employee fetchByHireDate(LocalDate hireDate);
 }

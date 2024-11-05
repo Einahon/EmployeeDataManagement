@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -17,6 +17,7 @@ public class EmployeeController {
     public String helloController(){
         return "Welcome to Employee Data";
     }
+
     @Autowired
     private EmployeeService employeeService;
 
@@ -52,7 +53,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/hireDate/{hireDate}")
-    public Employee fetchByHireDate(@PathVariable("hireDate") String hireDate){
+    public Employee fetchByHireDate(@PathVariable("hireDate") LocalDate hireDate){
         return employeeService.fetchByHireDate(hireDate);
     }
 

@@ -5,9 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Builder
@@ -15,17 +16,18 @@ import lombok.NoArgsConstructor;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotBlank(message = "Please add Employee Name")
+    @NotBlank(message = "Please Employee name is required")
     private String name;
+    @NotBlank(message = "Employee department is required")
        private String department;
+    @NotBlank(message = "Employee job title is required")
        private String jobTitle;
-       @NotNull(message = "Salary must not be Null")
+       @NotNull(message = "Salary is required")
        @Min(value = 100000, message = "Salary must be a minimum of 100000")
        @Max(value = 999999, message = "Salary must be a maximum of 999999")
-       private Long salary;
+       private BigDecimal salary;
 
-       @NotBlank(message = "Please add hired date")
-       private String hireDate;
+       private LocalDate hireDate;
 
        public Long getId() {
            return id;
@@ -59,23 +61,23 @@ import lombok.NoArgsConstructor;
            this.jobTitle = jobTitle;
        }
 
-       public Long getSalary() {
+       public @NotNull(message = "Salary is required") @Min(value = 100000, message = "Salary must be a minimum of 100000") @Max(value = 999999, message = "Salary must be a maximum of 999999") BigDecimal getSalary() {
            return salary;
        }
 
-       public void setSalary(Long salary) {
+       public void setSalary(BigDecimal salary) {
            this.salary = salary;
        }
 
-       public String getHireDate() {
+       public LocalDate getHireDate() {
            return hireDate;
        }
 
-       public void setHireDate(String hireDate) {
+       public void setHireDate(LocalDate hireDate) {
            this.hireDate = hireDate;
        }
 
-       public Employee(Long id, String name, String department, String jobTitle, Long salary, String hireDate) {
+       public Employee(Long id, String name, String department, String jobTitle, BigDecimal salary, LocalDate hireDate) {
            this.id = id;
            this.name = name;
            this.department = department;
