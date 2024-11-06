@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -42,10 +43,10 @@ public class EmployeeController {
     public Employee updateEmployeeById(@RequestBody Employee employee, @PathVariable("id") Long id){
         return employeeService.updateEmployeeById(employee, id);
     }
-@DeleteMapping("/employees/{id}")
+    @DeleteMapping("/employees/{id}")
     public String deleteEmployeeById(@PathVariable("id") Long id){
         employeeService.deleteEmployeeById(id);
-                return "Employee deleted sucessfully";
+                return "Employee deleted successfully";
     }
     @GetMapping("/employees/name/{name}")
     public Employee fetchEmployeeByName(@PathVariable("name") String name ){
