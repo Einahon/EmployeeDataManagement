@@ -46,8 +46,7 @@ public class EmployeeService implements IEmployeeService{
             employee1.setName(employee.getName());
         }
 
-        if((employee.getSalary()!= null) &&
-                !"".equalsIgnoreCase(String.valueOf(employee.getSalary()))){
+        if((employee.getSalary()!= null)){
             employee1.setSalary(employee.getSalary());
         }
 
@@ -71,7 +70,7 @@ public class EmployeeService implements IEmployeeService{
 
     @Override
     public void deleteEmployeeById(Long id) {
-        employeeRepository.deleteById(id);
+            employeeRepository.deleteById(id);
     }
 
     @Override
