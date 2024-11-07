@@ -62,17 +62,17 @@ public class EmployeeService implements IEmployeeService{
 
         if(employee.getHireDate() != null){
             employee1.setHireDate(employee.getHireDate());
-
         }
-
         return employeeRepository.save(employee1);
     }
 
     @Override
-    public void deleteEmployeeById(Long id) {
-            employeeRepository.deleteById(id);
+    public void deleteEmployeeById(Long id) throws EmployeeNotFoundException {
+        if(!employeeRepository.existsById(id)) {
+            throw new EmployeeNotFoundException("Employee not found with id: " + id);
+        }
+          employeeRepository.deleteById(id);
     }
-
     @Override
     public Employee fetchEmployeeByName(String name) {
         return employeeRepository.findByNameIgnoreCase(name);

@@ -44,7 +44,7 @@ public class EmployeeController {
         return employeeService.updateEmployeeById(employee, id);
     }
     @DeleteMapping("/employees/{id}")
-    public String deleteEmployeeById(@PathVariable("id") Long id){
+    public String deleteEmployeeById(@PathVariable("id") Long id) throws EmployeeNotFoundException {
         employeeService.deleteEmployeeById(id);
                 return "Employee deleted successfully";
     }
