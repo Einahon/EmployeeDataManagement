@@ -39,8 +39,8 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee updateEmployeeById(Employee employee, Long id) {
-        Employee employee1 = employeeRepository.findById(id).get();
+    public Employee updateEmployeeById(Employee employee, Long id) throws EmployeeNotFoundException {
+        Employee employee1 = employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: "+ id));
         if(Objects.nonNull(employee.getName()) &&
                 !"".equalsIgnoreCase(employee.getName())) {
             employee1.setName(employee.getName());

@@ -25,12 +25,13 @@ import java.time.LocalDate;
     private String name;
     @NotBlank(message = "Employee department is required")
        private String department;
-    @NotBlank(message = "Employee job title is required")
+    @NotNull(message = "Job Title is required")
        private String jobTitle;
        @NotNull(message = "Salary is required")
        @Min(value = 100000, message = "Salary must be a minimum of 100000")
        @Max(value = 999999, message = "Salary must be a maximum of 999999")
        private BigDecimal salary;
+       @NotNull(message = "Hire date is required")
        private LocalDate hireDate;
 
 

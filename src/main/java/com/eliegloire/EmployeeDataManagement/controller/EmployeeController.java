@@ -25,7 +25,7 @@ public class EmployeeController {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
     @PostMapping("/employees")
-    public Employee saveEmployee(@Valid @RequestBody Employee employee){
+    public Employee saveEmployee(@RequestBody @Valid Employee employee){
         LOGGER.info("Logger for saveEmployee of EmployeeController");
         return employeeService.saveEmployee(employee);
     }
@@ -40,7 +40,7 @@ public class EmployeeController {
         return employeeService.fetchEmployeeById(id);
     }
     @PutMapping("/employees/{id}")
-    public Employee updateEmployeeById(@RequestBody Employee employee, @PathVariable("id") Long id){
+    public Employee updateEmployeeById(@Valid @RequestBody Employee employee, @PathVariable("id") Long id) throws EmployeeNotFoundException {
         return employeeService.updateEmployeeById(employee, id);
     }
     @DeleteMapping("/employees/{id}")
