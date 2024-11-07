@@ -49,7 +49,7 @@ public class EmployeeController {
                 return "Employee deleted successfully";
     }
     @GetMapping("/employees/name/{name}")
-    public Employee fetchEmployeeByName(@PathVariable("name") String name ){
+    public Employee fetchEmployeeByName(@PathVariable("name") String name ) throws EmployeeNotFoundException {
         return employeeService.fetchEmployeeByName(name);
     }
 

@@ -74,8 +74,12 @@ public class EmployeeService implements IEmployeeService{
           employeeRepository.deleteById(id);
     }
     @Override
-    public Employee fetchEmployeeByName(String name) {
-        return employeeRepository.findByNameIgnoreCase(name);
+    public Employee fetchEmployeeByName(String name) throws EmployeeNotFoundException {
+        Employee employee = employeeRepository.findByNameIgnoreCase(name);
+        if(employee == null){
+            throw new EmployeeNotFoundException("Employee Not Available by name "+ name);
+        }
+        return employee;
     }
 
     @Override

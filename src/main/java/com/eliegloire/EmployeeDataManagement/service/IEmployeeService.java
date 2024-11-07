@@ -17,7 +17,7 @@ public interface IEmployeeService {
 
    public void deleteEmployeeById(Long id) throws EmployeeNotFoundException;
 
-   public Employee fetchEmployeeByName(String name);
+   public Employee fetchEmployeeByName(String name) throws EmployeeNotFoundException;
 
     public Employee fetchByHireDate(LocalDate hireDate);
 }
