@@ -54,7 +54,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/hireDate/{hireDate}")
-    public Employee fetchByHireDate(@PathVariable("hireDate") LocalDate hireDate){
+    public Employee fetchByHireDate(@PathVariable("hireDate") LocalDate hireDate) throws EmployeeNotFoundException {
         return employeeService.fetchByHireDate(hireDate);
     }
 

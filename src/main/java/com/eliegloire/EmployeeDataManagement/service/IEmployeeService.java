@@ -19,5 +19,5 @@ public interface IEmployeeService {
 
    public Employee fetchEmployeeByName(String name) throws EmployeeNotFoundException;
 
-    public Employee fetchByHireDate(LocalDate hireDate);
+    public Employee fetchByHireDate(LocalDate hireDate) throws EmployeeNotFoundException;
 }

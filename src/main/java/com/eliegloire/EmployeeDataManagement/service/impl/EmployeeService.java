@@ -83,8 +83,12 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public Employee fetchByHireDate(LocalDate hireDate) {
-        return employeeRepository.findByHireDate(hireDate);
+    public Employee fetchByHireDate(LocalDate hireDate) throws EmployeeNotFoundException {
+        Employee employee = employeeRepository.findByHireDate(hireDate);
+        if(employee == null){
+            throw new EmployeeNotFoundException("Employee not available by hired date "+ hireDate);
+        }
+        return employee;
     }
 
 }
