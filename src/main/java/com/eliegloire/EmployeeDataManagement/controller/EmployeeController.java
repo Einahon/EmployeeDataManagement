@@ -25,7 +25,7 @@ public class EmployeeController {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
     @PostMapping("/employees")
-    public Employee saveEmployee(@RequestBody @Valid Employee employee){
+    public Employee saveEmployee(@Valid @RequestBody Employee employee){
         LOGGER.info("Logger for saveEmployee of EmployeeController");
         return employeeService.saveEmployee(employee);
     }

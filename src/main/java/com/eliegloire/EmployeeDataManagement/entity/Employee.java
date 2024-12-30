@@ -14,24 +14,16 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 @Builder
    public class Employee{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @NotBlank(message = "Please Employee name is required")
-    private String name;
-    @NotBlank(message = "Employee department is required")
+      private Long id;
+    @NotBlank(message = "Please Add Name")
+       private String name;
        private String department;
-    @NotNull(message = "Job Title is required")
        private String jobTitle;
-       @NotNull(message = "Salary is required")
-       @Min(value = 100000, message = "Salary must be a minimum of 100000")
-       @Max(value = 999999, message = "Salary must be a maximum of 999999")
        private BigDecimal salary;
-       @NotNull(message = "Hire date is required")
        private LocalDate hireDate;
 
 
