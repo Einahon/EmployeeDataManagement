@@ -44,13 +44,12 @@ class IEmployeeServiceTest {
     @Test
     @DisplayName("Get data by Employee Name")
 
-    public void whenValidEmployeeName_thenReturnEmployee() throws EmployeeNotFoundException {
+    public void whenValidEmployeeName_thenReturnEmployeeFound() throws EmployeeNotFoundException {
         String name = "Elie Inahon";
         Employee found =
                 employeeService.fetchEmployeeByName(name);
         assertEquals(name, found.getName());
-
-
     }
+
 
 }
