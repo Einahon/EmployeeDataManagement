@@ -7,16 +7,18 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
 public class EmployeeController {
+
+
+    String welcomeMessage = "Welcome to Employee Management";
     @GetMapping("/")
     public String helloController(){
-        return "Welcome to Employee Data";
+        return welcomeMessage;
     }
 
     @Autowired
