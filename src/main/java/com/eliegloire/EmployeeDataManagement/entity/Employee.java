@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -30,7 +29,7 @@ import java.time.LocalDate;
     @Size(min = 2, max = 20, message = "Job title must be btwn 2 - 20 characters")
        private String jobTitle;
     @NotNull(message = "Salary must not be null")
-    @DecimalMin(value = "60000.00", inclusive = true, message = "Salary must be greater or equal $60000.00")
+    @DecimalMin(value = "60000.00", message = "Salary must be greater or equal $60000.00")
     @DecimalMax(value = "1000000.00", message = "Salary must be less or equal to $1000000.00")
     @Digits(integer = 10, fraction = 2, message = "Salary must be 2 digits after the decimal point")
     private BigDecimal salary;
